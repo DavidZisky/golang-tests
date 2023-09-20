@@ -9,11 +9,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-defaults:
-  run:
-    shell: bash
-    working-directory: ./go-webserver/src
-
 jobs:
 
   build:
@@ -27,4 +22,5 @@ jobs:
         go-version: '1.20'
 
     - name: Build
-      run: go build -v ./go-webserver/src/...
+      run: go build -v ./...
+      working-directory: ./go-webserver/src
